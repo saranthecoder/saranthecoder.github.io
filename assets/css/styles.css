@@ -386,7 +386,8 @@ img {
 /*==================== ABOUT ====================*/
 
 .about__img{
-  height: 500px;
+  height: auto;
+  width: auto;
   border-radius: .5rem;
   justify-self: center;
   align-self: center;
