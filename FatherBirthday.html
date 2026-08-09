@@ -92,7 +92,7 @@
 
         .feature-image {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -101,7 +101,15 @@
         }
 
         .feature-image.teacher-img {
-            height: auto;
+            object-position: center;
+        }
+
+        .feature-image.protector-img {
+            object-position: center;
+        }
+
+        .feature-image.hero-img {
+            object-position: 45% center;
         }
 
         .feature:hover .feature-image {
@@ -151,12 +159,12 @@
         </div>
         <div class="feature">
             <h3>The Protector</h3>
-            <img src="IMG-20240522-WA0002.jpg" alt="The Protector" class="feature-image">
+            <img src="IMG-20240522-WA0002.jpg" alt="The Protector" class="feature-image protector-img">
             <p>Our constant rock through every storm.</p>
         </div>
         <div class="feature">
             <h3>The Hero</h3>
-            <img src="IMG-20250312-WA0013.jpg" alt="The Hero" class="feature-image">
+            <img src="IMG-20250312-WA0013.jpg" alt="The Hero" class="feature-image hero-img">
             <p>Because not all superheroes wear capes—some just wear dad shoes.</p>
         </div>
     </div>
