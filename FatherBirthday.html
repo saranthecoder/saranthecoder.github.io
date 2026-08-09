@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The World's Best Dad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-blue: #0A192F;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
+                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2000') no-repeat center/cover;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin: 0;
+            color: var(--gold);
+            animation: fadeInDown 2s ease;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Features/Qualities */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .feature {
+            background: #112240;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            background: #1d335c;
+        }
+
+        .feature h3 {
+            color: var(--gold);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature:hover .feature-image {
+            border-color: var(--gold);
+            transform: scale(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="subtitle">Celebrating A Legend</p>
+        <h1>Happy Birthday, Dad!</h1>
+        <p style="margin-top: 20px;">The man. The myth. The mentor.</p>
+    </header>
+
+    <section class="message-section">
+        <div class="card">
+            <h2>To my incredible Father,</h2>
+            <p>Thank you for being the foundation of our family, the voice of reason, and the greatest role model I could ever ask for. Your strength and kindness inspire me every single day.</p>
+            <p>Today is all about <strong>you</strong>.</p>
+        </div>
+    </section>
+
+    <div class="grid">
+        <div class="feature">
+            <h3>The Teacher</h3>
+            <img src="IMG-20220402-WA0001.jpg" alt="The Teacher" class="feature-image">
+            <p>For all the lessons that weren't found in books.</p>
+        </div>
+        <div class="feature">
+            <h3>The Protector</h3>
+            <img src="IMG-20240522-WA0002.jpg" alt="The Protector" class="feature-image">
+            <p>Our constant rock through every storm.</p>
+        </div>
+        <div class="feature">
+            <h3>The Hero</h3>
+            <img src="IMG-20250312-WA0013.jpg" alt="The Hero" class="feature-image">
+            <p>Because not all superheroes wear capes—some just wear dad shoes.</p>
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ for the world's best Dad.
+    </footer>
+
+</body>
+</html>
