@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of My Father</title>
+    <!-- Premium Google Fonts -->
+    <link href="googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #050508;
+            color: #ffffff;
+        }
+        /* Cinematic Background Portal */
+        .universe {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(circle at center, #111424 0%, #050508 100%);
+        }
+        #starfield {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        /* 3D Stage Setup */
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            perspective: 2000px;
+            z-index: 2;
+        }
+        /* Grand Immersive Slides */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateZ(-1000px) rotateX(90deg);
+            transition: all 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        /* Active State: Snaps to Reality */
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0px) rotateX(0deg);
+        }
+        /* Past State: Flies off upwards */
+        .slide.past {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateZ(1000px) rotateX(-90deg);
+        }
+        /* Luxury Grand Styling */
+        .gold-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 30px rgba(187,143,61,0.3));
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.1, 0.8, 0.2, 1) 0.6s;
+        }
+        .slide.active .gold-title {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .message {
+            font-size: 1.8rem;
+            font-weight: 300;
+            max-width: 800px;
+            line-height: 2;
+            color: #e0e0e6;
+            letter-spacing: 2px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.1, 0.8, 0.2, 1) 1s;
+        }
+        .slide.active .message {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        /* Grand Interactive Navigation Controls */
+        .controls {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(191, 149, 63, 0.4);
+            color: #fcf6ba;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #bf953f 0%, #b38728 100%);
+            color: #050508;
+            box-shadow: 0 0 30px rgba(187,143,61,0.6);
+            border-color: transparent;
+        }
+        .counter {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.5rem;
+            color: #bf953f;
+            letter-spacing: 4px;
+        }
+        /* Ambient Golden Dust Particles */
+        #dust-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gold-title { font-size: 2.8rem; }
+            .message { font-size: 1.1rem; }
+            .nav-btn { padding: 10px 20px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cinematic Background Portal -->
+    <div class="universe">
+        <canvas id="starfield"></canvas>
+    </div>
+
+    <!-- Active Floating Dust Particles Layer -->
+    <canvas id="dust-canvas"></canvas>
+
+    <!-- 3D Stage Wrapper -->
+    <div class="stage">
+
+        <!-- SLIDE 1 -->
+        <section class="slide active">
+            <h1 class="gold-title">A Grand Welcome</h1>
+            <p class="message">To the sanctuary of a true protector, an exceptional mentor, and a legendary man.</p>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide">
+            <h1 class="gold-title">Happy Birthday, Dad!</h1>
+            <p class="message">Your strength is my foundation. Your wisdom is my compass. Today, we celebrate the absolute best person in my universe.</p>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide">
+            <h1 class="gold-title">The Ultimate Pillar</h1>
+            <p class="message">Through every storm, your calm guidance has carved out paths where there were none. I owe my greatest victories to your quiet sacrifices.</p>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide">
+            <h1 class="gold-title">To Infinity & Beyond</h1>
+            <p class="message">May this magnificent year bring you elite health, matchless peace, and the timeless joy you so deeply deserve.</p>
+        </section>
+
+    </div>
+
+    <!-- Interface Controller -->
+    <div class="controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <span class="counter" id="slideNum">I / IV</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        // Immersive Page Flipping Core
+        let currentIdx = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideNum = document.getElementById('slideNum');
+        const romanNumerals = ["I", "II", "III", "IV"];
+
+        function changeSlide(direction) {
+            // Remove previous classifications
+            slides[currentIdx].classList.remove('active');
+            
+            if(direction === 1) {
+                slides[currentIdx].classList.add('past');
+            } else {
+                slides[currentIdx].classList.remove('past');
+            }
+
+            // Calculate boundary Index bounds
+            currentIdx += direction;
+            if (currentIdx >= slides.length) {
+                currentIdx = 0;
+                slides.forEach(s => s.classList.remove('past'));
+            }
+            if (currentIdx < 0) {
+                currentIdx = slides.length - 1;
+                for(let i=0; i<slides.length-1; i++) {
+                    slides[i].classList.add('past');
+                }
+            }
+
+            // Trigger Entry Animation Engine
+            slides[currentIdx].classList.remove('past');
+            slides[currentIdx].classList.add('active');
+            
+            // Sync Interface Tracker
+            slideNum.innerText = `${romanNumerals[currentIdx]} / IV`;
+        }
+
+        // Deep Space Matrix Effect
+        const starCanvas = document.getElementById('starfield');
+        const starCtx = starCanvas.getContext('2d');
+        let stars = [];
+
+        // Golden Nebula Dust Effect
+        const dustCanvas = document.getElementById('dust-canvas');
+        const dustCtx = dustCanvas.getContext('2d');
+        let dustParticles = [];
+
+        function resizeRealms() {
+            starCanvas.width = window.innerWidth;
+            starCanvas.height = window.innerHeight;
+            dustCanvas.width = window.innerWidth;
+            dustCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeRealms);
+        resizeRealms();
+
+        // Populate Stellar Background System
+        for(let i=0; i<150; i++) {
+            stars.push({
+                x: Math.random() * starCanvas.width,
+                y: Math.random() * starCanvas.height,
+                radius: Math.random() * 1.5,
+                alpha: Math.random(),
+                speed: Math.random() * 0.02 + 0.005
+            });
+        }
+
+        // Populate Golden Dust Entities
+        for(let i=0; i<60; i++) {
+            dustParticles.push({
+                x: Math.random() * dustCanvas.width,
+                y: Math.random() * dustCanvas.height,
+                r: Math.random() * 3 + 1,
+                d: Math.random() * 50,
+                speedY: Math.random() * 0.5 + 0.2,
+                speedX: Math.random() * 0.4 - 0.2
+            });
+        }
+
+        // Render Frame Loop
+        function drawUniverse() {
+            // Space Loop
+            starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+            starCtx.fillStyle = "rgba(255,255,255,0.8)";
+            stars.forEach(s => {
+                s.alpha += s.speed;
+                if(s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+                starCtx.globalAlpha = Math.abs(s.alpha);
+                starCtx.beginPath();
+                starCtx.arc(s.x, s.y, s.radius, 0, Math.PI*2);
+                starCtx.fill();
+            });
+
+            // Luxury Dust Floating Loop
+            dustCtx.clearRect(0, 0, dustCanvas.width, dustCanvas.height);
+            dustParticles.forEach(p => {
+                dustCtx.beginPath();
+                // Radiant Gold Glow Fill
+                let gradient = dustCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+                gradient.addColorStop(0, 'rgba(255, 246, 186, 0.9)');
+                gradient.addColorStop(1, 'rgba(187, 143, 61, 0)');
+                dustCtx.fillStyle = gradient;
+                dustCtx.arc(p.x, p.y, p.r * 2, 0, Math.PI*2);
+                dustCtx.fill();
+
+                // Vector Calculations
+                p.y -= p.speedY;
+                p.x += p.speedX;
+
+                // Infinite Boundaries wrapping
+                if (p.y < -10) {
+                    p.y = dustCanvas.height + 10;
+                    p.x = Math.random() * dustCanvas.width;
+                }
+            });
+
+            requestAnimationFrame(drawUniverse);
+        }
+        drawUniverse();
+    </script>
+</body>
+</html>
